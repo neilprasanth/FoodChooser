@@ -1,0 +1,88 @@
+<html>
+    <head>
+      <title>Food Chooser</title>
+      <link rel = "stylesheet" href = "chooserEffects.css">
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+        <style>
+
+        </style>
+      <script>
+          function ageCheck()
+          {
+            var x = document.getElementById("year").value;
+            var y = 2021;
+
+            x = parseInt(x);
+            y = parseInt(y);
+
+            var age = y - x;
+
+            if(age <= 10) //
+           {
+             document.getElementById('pic1').innerHTML = "<img src = 'hotdog.jpg' height = '200px' width = '200px' onclick = 'printNo()'>"
+             document.getElementById('pic2').innerHTML = "<img src = 'watermelon.jpg' height = '200px' width = '200px' onclick = 'printYes()'>"
+             document.getElementById('pic3').innerHTML = "<img src = 'chickenNugs.jpg' height = '200px' width = '200px' onclick = 'printNo()'>"
+
+
+           }
+           else if (age > 10)
+           {
+            document.getElementById('pic1').innerHTML = "<img src = 'fishDish.jpg' height = '200px' width = '200px' onclick = 'printYes()'>"
+            document.getElementById('pic2').innerHTML = "<img src = 'fastFood.jpg' height = '200px' width = '200px' onclick = 'printNo()'>"
+            document.getElementById('pic3').innerHTML = "<img src = 'chocolate.jpg' height = '200px' width = '200px' onclick = 'printNo()'>"
+
+           }
+           if(age < 0)
+           {
+             document.getElementById('pic1').innerHTML = " "
+             document.getElementById('pic2').innerHTML = " "
+             document.getElementById('pic3').innerHTML = " "
+            document.getElementById("message").innerHTML = "ERROR. Your Age Is Less Than 0!"
+           }
+           if(age > 200)
+           {
+             document.getElementById('pic1').innerHTML = " "
+             document.getElementById('pic2').innerHTML = " "
+             document.getElementById('pic3').innerHTML = " "
+            document.getElementById("message").innerHTML = "ERROR. Your Age Exceeds The Average Life Span!"
+           }
+
+         }
+
+           function printYes()
+           {
+
+             document.getElementById("message").innerHTML = "<hr>Yes you should give this to your guests!<hr>";
+           }
+
+
+           function printNo()
+           {
+             document.getElementById("message").innerHTML = "<hr>No you should not give this to your guests!<hr>";
+           }
+
+
+
+
+      </script>
+    </head>
+
+    <body>
+
+       <h1>The Food Chooser</h1>
+       <p id = "intro">Here is a helpful system to figure out what to feed your guests!</p>
+       <input type = "text" value = "Type Birth Year" id = "year">
+       <input type = "button" value = "Submit" onclick = "ageCheck()" id = "sButton">
+
+<table>
+    <tr>
+       <td> <p id = "pic1"></p> </td>
+       <td> <p id = "pic2"></p> </td>
+       <td> <p id = "pic3"></p> </td>
+       <p id = "message"></p><!--Yes or No Message gets sent here-->
+    </tr>
+</table>
+
+    </body>
+</html>
